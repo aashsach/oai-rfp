@@ -18,7 +18,7 @@ The project is a monorepo with separate application folders:
 
 - Authentication: Supabase GoTrue via local Kong gateway at `http://localhost:8000/auth/v1`.
 - Backend API: FastAPI exposed at `http://localhost:8080`, currently with `/api/v1/health` and authenticated `/api/v1/me`.
-- Frontend app: Next.js exposed at `http://localhost:3000`, currently a HeroUI landing page with top-right Supabase email/password sign-in and sign-up controls.
+- Frontend app: Next.js exposed at `http://localhost:3000`, currently a HeroUI landing page with top-right Supabase email/password sign-in/sign-up controls plus SaaS marketing/support pages for pricing, about, contact, security, changelog, privacy, and terms.
 - Data layer: Supabase Postgres with SQLModel models in backend.
 - Client generation: `apps/frontend/src/lib/api/generated` is generated from backend OpenAPI using OpenAPI Generator Docker image.
 
