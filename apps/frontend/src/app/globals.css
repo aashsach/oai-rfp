@@ -49,6 +49,15 @@ main {
   display: flex;
   justify-content: space-between;
   gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--background);
+  margin-top: -24px;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  margin-inline: calc(-1 * clamp(20px, 4vw, 56px));
+  padding-inline: clamp(20px, 4vw, 56px);
 }
 
 .brand-mark {
