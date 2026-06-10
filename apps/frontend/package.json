@@ -1,0 +1,26 @@
+{
+  "name": "rfp-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "next build",
+    "start": "next start --hostname 0.0.0.0",
+    "lint": "next lint",
+    "openapi:generate": "docker run --rm -v \"$PWD:/local\" openapitools/openapi-generator-cli:v7.9.0 generate -i ${NEXT_PUBLIC_API_URL:-http://host.docker.internal:8080}/openapi.json -g typescript-fetch -o /local/src/lib/api/generated --additional-properties=supportsES6=true,typescriptThreePlus=true"
+  },
+  "dependencies": {
+    "@supabase/ssr": "0.6.1",
+    "@supabase/supabase-js": "2.49.1",
+    "next": "15.1.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "2.15.3",
+    "@types/node": "22.10.7",
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3",
+    "typescript": "5.7.3"
+  }
+}
