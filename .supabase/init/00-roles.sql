@@ -35,6 +35,7 @@ alter default privileges in schema public grant all on sequences to anon, authen
 
 create schema if not exists auth authorization supabase_auth_admin;
 grant usage, create on schema auth to supabase_auth_admin;
+alter role supabase_auth_admin set search_path = auth, public;
 
 do $$
 begin

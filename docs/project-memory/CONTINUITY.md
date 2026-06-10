@@ -16,6 +16,8 @@ The frontend home page is a HeroUI landing page with top-right sign-in/sign-up b
 
 The Docker Compose stack has been verified through `just up-d` with backend, frontend, DB, Auth, REST, and Kong running. Backend health, frontend HTTP response, and Supabase Auth health were verified.
 
+Supabase Auth signup previously failed with `Database error finding user` because GoTrue queried unqualified Auth tables while `supabase_auth_admin` had the default search path. `.supabase/init/00-roles.sql` now sets `supabase_auth_admin` search path to `auth, public`. The running local DB was repaired by applying the same role setting and reconciling `auth.schema_migrations` with the already-applied versions from `public.schema_migrations`; direct signup through Kong then returned 200.
+
 ## Recent Commits
 
 - none yet
@@ -36,7 +38,7 @@ The Docker Compose stack has been verified through `just up-d` with backend, fro
 
 ## Technical Debt
 
-- Supabase local stack uses manual compatibility bootstrap SQL in `.supabase/init/00-roles.sql`; revisit when changing Supabase image versions.
+- Supabase local stack uses manual compatibility bootstrap SQL in `.supabase/init/00-roles.sql`; revisit role/search-path assumptions when changing Supabase image versions.
 - Backend authentication currently validates JWTs directly with the shared local secret; production hardening may require JWKS/claims validation strategy appropriate to deployment.
 - Backend tests are minimal and cover only OpenAPI availability.
 - The starter `RFPDocument` model exists but no document workflow endpoints or migrations are implemented.

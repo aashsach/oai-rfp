@@ -38,7 +38,7 @@ The project is a monorepo with separate application folders:
 - Supabase service-role or secret keys must never be exposed to frontend code.
 - Frontend public env vars may contain only browser-safe values.
 - Local development env values are stored in ignored `.env` files; `.env.example` documents the required variables.
-- Local Supabase Auth requires compatibility bootstrap SQL in `.supabase/init/00-roles.sql` for the pinned GoTrue/Postgres image combination.
+- Local Supabase Auth requires compatibility bootstrap SQL in `.supabase/init/00-roles.sql` for the pinned GoTrue/Postgres image combination, including `supabase_auth_admin` role search path set to `auth, public`.
 - OpenAPI generation uses Docker to avoid requiring a host Java runtime.
 
 ## Important Historical Decisions
