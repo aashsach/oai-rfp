@@ -3,6 +3,9 @@ set dotenv-load := true
 up:
     docker compose up --build
 
+up-d:
+    docker compose up --build -d
+
 down:
     docker compose down
 
@@ -15,5 +18,11 @@ logs:
 backend-test:
     docker compose run --rm backend uv run pytest
 
+frontend-dev:
+    cd apps/frontend && npm run dev
+
+frontend-build:
+    cd apps/frontend && npm run build
+
 openapi:
-    cd apps/frontend && NEXT_PUBLIC_API_URL=http://host.docker.internal:8080 npm run openapi:generate
+    cd apps/frontend && npm run openapi:generate

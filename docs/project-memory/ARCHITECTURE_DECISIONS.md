@@ -34,3 +34,10 @@
 - Date: 2026-06-10
 - Decision: Run OpenAPI Generator through the official Docker image.
 - Rationale: The host environment may not have Java installed; Docker keeps the generator reproducible.
+
+## AD-006: HeroUI v3 Frontend Components
+
+- Status: Accepted
+- Date: 2026-06-10
+- Decision: Use HeroUI v3 with Tailwind CSS v4 for frontend application components and styling.
+- Rationale: The frontend needs accessible, composable UI primitives for auth and workspace flows while staying inside the existing Next.js app.

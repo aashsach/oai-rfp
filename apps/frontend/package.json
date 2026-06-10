@@ -10,11 +10,17 @@
     "openapi:generate": "docker run --rm -v \"$PWD:/local\" openapitools/openapi-generator-cli:v7.9.0 generate -i ${NEXT_PUBLIC_API_URL:-http://host.docker.internal:8080}/openapi.json -g typescript-fetch -o /local/src/lib/api/generated --additional-properties=supportsES6=true,typescriptThreePlus=true"
   },
   "dependencies": {
+    "@heroui/react": "^3.1.0",
+    "@heroui/styles": "^3.1.0",
     "@supabase/ssr": "0.6.1",
     "@supabase/supabase-js": "2.49.1",
+    "@tailwindcss/postcss": "^4.3.0",
     "next": "15.1.4",
+    "postcss": "^8.5.15",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "tailwind-variants": "^3.2.2",
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "2.15.3",

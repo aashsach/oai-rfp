@@ -7,12 +7,14 @@ This is the canonical AI memory file. Future sessions must read this file before
 The repository contains the initial monorepo foundation for an RFP document filling tool:
 
 - FastAPI backend in `apps/backend`.
-- Next.js frontend in `apps/frontend`.
+- Next.js frontend in `apps/frontend`, now using HeroUI v3 and Tailwind CSS v4.
 - Supabase-compatible local stack in `.supabase` and `docker-compose.yml`.
-- Root `justfile` for stack, logs, reset, tests, and OpenAPI generation.
+- Root `justfile` for stack, logs, reset, tests, frontend build/dev, and OpenAPI generation.
 - Frontend generated client in `apps/frontend/src/lib/api/generated`.
 
-The Docker Compose stack has been verified with backend, frontend, DB, Auth, REST, and Kong running. Backend health, frontend HTTP response, and Supabase Auth health were verified.
+The frontend home page is a HeroUI landing page with top-right sign-in/sign-up buttons and a Supabase email/password auth modal. Local env values are now in ignored `.env` files, with `.env.example` documenting required variables.
+
+The Docker Compose stack has been verified through `just up-d` with backend, frontend, DB, Auth, REST, and Kong running. Backend health, frontend HTTP response, and Supabase Auth health were verified.
 
 ## Recent Commits
 
@@ -29,7 +31,7 @@ The Docker Compose stack has been verified with backend, frontend, DB, Auth, RES
 ## Unresolved Issues
 
 - No commits exist yet, so all initial scaffold work is uncommitted.
-- Browser verification could not be completed through the in-app browser because that browser surface was unavailable; HTTP checks were used instead.
+- Browser verification could not be completed through the in-app browser because that browser surface was unavailable; build, Docker, and HTTP checks were used instead.
 - Frontend package audit reported vulnerabilities from npm dependencies during install/build output. No audit remediation has been performed yet.
 
 ## Technical Debt
